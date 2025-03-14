@@ -1,27 +1,17 @@
-const int led1 = 13;
-const int led2 = A5;
-const int led3 = A4;
-
+const int leds[] = {13, A5, A4};
+const int length = sizeof(leds) / sizeof(leds[0]);
 
 void setup(){
-  pinMode(led1, OUTPUT);
-  pinMode(led2, OUTPUT);
-  pinMode(led3, OUTPUT);
+  for(int i = 0; i < length; i++){
+    pinMode(led[i], OUTPUT);
+  }
 }
 
 void loop(){
-  digitalWrite(led1, LOW);
-  digitalWrite(led2, HIGH);
-  digitalWrite(led3, HIGH);
-  delay(1000);
-
-  digitalWrite(led1, HIGH);
-  digitalWrite(led2, LOW);
-  digitalWrite(led3, HIGH);
-  delay(1000);
-
-  digitalWrite(led1, HIGH);
-  digitalWrite(led2, HIGH);
-  digitalWrite(led3, LOW);
-  delay(1000);
+  for(int i = 0; i < length; i++){
+    digitalWrite(leds[i], HIGH);
+    delay(500);
+    digitalWrite(leds[i], LOW);
+    delay(500);
+  }
 }
